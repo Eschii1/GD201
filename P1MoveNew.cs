@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class P2Move : MonoBehaviour
-{
+public class P1MoveNew : MonoBehaviour {
+
+
     public float startingPoint;
     public GameObject Player;
     public bool playerDied;
@@ -11,15 +13,13 @@ public class P2Move : MonoBehaviour
     public HealthB health;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start () {
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<Rigidbody>().useGravity = true;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
+	
+	// Update is called once per frame
+	void Update () {
 
 
         if (transform.position.y < 4f)
@@ -38,7 +38,7 @@ public class P2Move : MonoBehaviour
         }
 
 
-
+        
 
         /*
         if (Input.GetKeyDown(KeyCode.W) && transform.position.z < 2f)
@@ -64,19 +64,19 @@ public class P2Move : MonoBehaviour
         */
 
 
+        
+       /*  
+        if(Input.GetAxis("Horizontal")
+        {
+            move p1
+        }
+        */
+         
 
-        /*  
-         if(Input.GetAxis("Horizontal")
-         {
-             move p1
-         }
-         */
+        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * 50, 0f, Input.GetAxis("Vertical") * Time.deltaTime * 50 );
+        
 
-
-        transform.Translate(Input.GetAxis("P2Horizontal") * Time.deltaTime * 50, 0f, Input.GetAxis("P2Vertical") * Time.deltaTime * 50);
-
-
-
+        
     }
 
 
